@@ -42,7 +42,7 @@ import org.junit.Test;
 import org.n52.io.request.IoParameters;
 import org.n52.io.response.GeometryInfo;
 import org.n52.io.response.OutputCollection;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.rest.AlertCollection;
 import org.n52.series.dwd.rest.VorabInformationAlert;
 import org.n52.series.dwd.rest.WarnungAlert;
@@ -57,19 +57,19 @@ public class GeometryOutputAdapterTest {
 
     private AlertStore alertStore;
 
-    private ServiceInfo serviceInfo;
+    private ServiceEntity serviceEntity;
 
     private GeometryOutputAdapter adapter;
 
     @Before
     public void setUp() throws URISyntaxException {
         alertStore = new InMemoryAlertStore();
-        serviceInfo = new ServiceInfo();
-        serviceInfo.setServiceId("1");
-        serviceInfo.setType("foo");
+        serviceEntity = new ServiceEntity();
+        serviceEntity.setServiceId("1");
+        serviceEntity.setType("foo");
 
-        adapter = new GeometryOutputAdapter(alertStore, serviceInfo);
-        adapter.setPlatformOutputAdapter(new PlatformOutputAdapter(alertStore, serviceInfo));
+        adapter = new GeometryOutputAdapter(alertStore, serviceEntity);
+        adapter.setPlatformOutputAdapter(new PlatformOutputAdapter(alertStore, serviceEntity));
     }
 
     @Test

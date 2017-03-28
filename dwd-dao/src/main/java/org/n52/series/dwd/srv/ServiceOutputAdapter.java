@@ -31,44 +31,44 @@ package org.n52.series.dwd.srv;
 import org.n52.io.request.IoParameters;
 import org.n52.io.response.OutputCollection;
 import org.n52.io.response.ServiceOutput;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.spi.srv.ParameterService;
 import org.n52.web.ctrl.UrlHelper;
 
 public class ServiceOutputAdapter extends ParameterService<ServiceOutput> {
 
-    private ServiceInfo serviceInfo;
+    private ServiceEntity serviceEntity;
 
     private final UrlHelper urlHelper = new UrlHelper();
 
-    public ServiceOutputAdapter(ServiceInfo serviceInfo) {
-        this.serviceInfo = serviceInfo;
+    public ServiceOutputAdapter(ServiceEntity serviceInfo) {
+        this.serviceEntity = serviceInfo;
     }
 
     @Override
     public OutputCollection<ServiceOutput> getExpandedParameters(IoParameters query) {
         OutputCollection<ServiceOutput> outputCollection = createOutputCollection();
-        outputCollection.addItem(createExpanded(serviceInfo.getServiceId(), query));
+        outputCollection.addItem(createExpanded(serviceEntity.getServiceId(), query));
         return outputCollection;
     }
 
     @Override
     public OutputCollection<ServiceOutput> getCondensedParameters(IoParameters query) {
         OutputCollection<ServiceOutput> outputCollection = createOutputCollection();
-        outputCollection.addItem(createCondensed(serviceInfo.getServiceId(), query));
+        outputCollection.addItem(createCondensed(serviceEntity.getServiceId(), query));
         return outputCollection;
     }
 
     @Override
     public OutputCollection<ServiceOutput> getParameters(String[] items, IoParameters query) {
         OutputCollection<ServiceOutput> outputCollection = createOutputCollection();
-        outputCollection.addItem(createCondensed(serviceInfo.getServiceId(), query));
+        outputCollection.addItem(createCondensed(serviceEntity.getServiceId(), query));
         return outputCollection;
     }
 
     @Override
     public ServiceOutput getParameter(String item, IoParameters query) {
-            String serviceId = serviceInfo.getServiceId();
+            String serviceId = serviceEntity.getServiceId();
             return serviceId.equals(item)
                     ? createExpanded(item, query)
                     : null;
@@ -76,8 +76,8 @@ public class ServiceOutputAdapter extends ParameterService<ServiceOutput> {
 
     private ServiceOutput createCondensed(String item, IoParameters query) {
         ServiceOutput result = new ServiceOutput();
-        result.setLabel(serviceInfo.getServiceDescription());
-        result.setId(serviceInfo.getServiceId());
+        result.setLabel(serviceEntity.getServiceDescription());
+        result.setId(serviceEntity.getServiceId());
         checkForHref(result, query);
         return result;
     }
@@ -89,19 +89,19 @@ public class ServiceOutputAdapter extends ParameterService<ServiceOutput> {
 
     @Override
     public boolean exists(String id, IoParameters parameters) {
-        return serviceInfo.getServiceId().equals(id);
+        return serviceEntity.getServiceId().equals(id);
     }
 
     private void checkForHref(ServiceOutput result, IoParameters parameters) {
         result.setHrefBase(urlHelper.getServicesHrefBaseUrl(parameters.getHrefBase()));
     }
 
-    public ServiceInfo getServiceInfo() {
-        return serviceInfo;
+    public ServiceEntity getServiceEntity() {
+        return serviceEntity;
     }
 
-    public void setServiceInfo(ServiceInfo serviceInfo) {
-        this.serviceInfo = serviceInfo;
+    public void setServiceEntity(ServiceEntity serviceEntity) {
+        this.serviceEntity = serviceEntity;
     }
 
 }

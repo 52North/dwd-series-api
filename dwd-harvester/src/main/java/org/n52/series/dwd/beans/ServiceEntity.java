@@ -36,9 +36,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ServiceInfo {
+public class ServiceEntity {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceInfo.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceEntity.class);
 
     private String serviceId;
 
@@ -48,7 +48,7 @@ public class ServiceInfo {
 
     private List<Double> noDataValues;
 
-    public ServiceInfo() {
+    public ServiceEntity() {
         noDataValues = Collections.emptyList();
     }
 

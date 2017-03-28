@@ -35,7 +35,7 @@ import org.n52.io.request.FilterResolver;
 import org.n52.io.request.IoParameters;
 import org.n52.io.response.OutputCollection;
 import org.n52.io.response.ProcedureOutput;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.rest.Alert;
 import org.n52.series.dwd.rest.Alert.AlertTypes;
 import org.n52.series.dwd.store.AlertStore;
@@ -47,7 +47,7 @@ public class ProcedureOutputAdapter extends AbstractOuputAdapter<ProcedureOutput
 
     private final UrlHelper urlHelper = new UrlHelper();
 
-    public ProcedureOutputAdapter(AlertStore store, ServiceInfo serviceInfo) {
+    public ProcedureOutputAdapter(AlertStore store, ServiceEntity serviceInfo) {
         super(serviceInfo);
         this.store = store;
     }

@@ -43,7 +43,7 @@ import org.n52.io.response.dataset.SeriesParameters;
 import org.n52.io.response.dataset.dwd.DwdAlert;
 import org.n52.io.response.dataset.dwd.DwdAlertDatasetOutput;
 import org.n52.io.response.dataset.dwd.DwdAlertValue;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.beans.WarnCell;
 import org.n52.series.dwd.rest.Alert;
 import org.n52.series.dwd.rest.AlertCollection;
@@ -59,7 +59,7 @@ public class DatasetOutputAdapter extends AbstractOuputAdapter<DatasetOutput> im
 
     private final UrlHelper urlHelper = new UrlHelper();
 
-    public DatasetOutputAdapter(AlertStore store, ServiceInfo serviceInfo) {
+    public DatasetOutputAdapter(AlertStore store, ServiceEntity serviceInfo) {
         super(serviceInfo);
         this.store = store;
     }

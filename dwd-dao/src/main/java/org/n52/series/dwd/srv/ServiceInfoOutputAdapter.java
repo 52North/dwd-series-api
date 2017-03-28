@@ -28,18 +28,18 @@
  */
 package org.n52.series.dwd.srv;
 
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 
 public abstract class ServiceInfoOutputAdapter {
 
-    private ServiceInfo serviceInfo;
+    private ServiceEntity serviceEntity;
 
-    public ServiceInfo getServiceInfo() {
-        return serviceInfo;
+    public ServiceEntity getServiceEntity() {
+        return serviceEntity;
     }
 
-    public void setServiceInfo(ServiceInfo serviceInfo) {
-        this.serviceInfo = serviceInfo;
+    public void setServiceEntity(ServiceEntity serviceEntity) {
+        this.serviceEntity = serviceEntity;
     }
 
 }

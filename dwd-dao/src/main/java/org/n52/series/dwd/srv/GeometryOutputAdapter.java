@@ -35,7 +35,7 @@ import org.n52.io.response.GeometryInfo;
 import org.n52.io.response.GeometryType;
 import org.n52.io.response.OutputCollection;
 import org.n52.io.response.PlatformOutput;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.beans.WarnCell;
 import org.n52.series.dwd.store.AlertStore;
 import org.n52.web.ctrl.UrlHelper;
@@ -50,7 +50,7 @@ public class GeometryOutputAdapter extends AbstractOuputAdapter<GeometryInfo> {
     @Autowired
     private PlatformOutputAdapter platformOutputAdapter;
 
-    public GeometryOutputAdapter(AlertStore store, ServiceInfo serviceInfo) {
+    public GeometryOutputAdapter(AlertStore store, ServiceEntity serviceInfo) {
         super(serviceInfo);
         this.store = store;
     }

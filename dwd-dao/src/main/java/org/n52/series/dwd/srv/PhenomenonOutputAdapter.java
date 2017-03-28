@@ -35,7 +35,7 @@ import org.n52.io.request.FilterResolver;
 import org.n52.io.request.IoParameters;
 import org.n52.io.response.OutputCollection;
 import org.n52.io.response.PhenomenonOutput;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.rest.Alert;
 import org.n52.series.dwd.store.AlertStore;
 import org.n52.web.ctrl.UrlHelper;
@@ -46,7 +46,7 @@ public class PhenomenonOutputAdapter extends AbstractOuputAdapter<PhenomenonOutp
 
     private final UrlHelper urlHelper = new UrlHelper();
 
-    public PhenomenonOutputAdapter(AlertStore store, ServiceInfo serviceInfo) {
+    public PhenomenonOutputAdapter(AlertStore store, ServiceEntity serviceInfo) {
         super(serviceInfo);
         this.store = store;
     }

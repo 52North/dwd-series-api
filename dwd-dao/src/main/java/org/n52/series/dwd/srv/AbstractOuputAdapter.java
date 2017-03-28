@@ -47,7 +47,7 @@ import org.n52.io.response.PlatformOutput;
 import org.n52.io.response.PlatformType;
 import org.n52.io.response.ProcedureOutput;
 import org.n52.io.response.ServiceOutput;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.beans.WarnCell;
 import org.n52.series.dwd.rest.Alert;
 import org.n52.series.dwd.rest.Alert.AlertTypes;
@@ -70,11 +70,11 @@ public abstract class AbstractOuputAdapter<T extends ParameterOutput> extends Pa
 
     private final static Logger LOGGER = LoggerFactory.getLogger(AbstractOuputAdapter.class);
     protected final UrlHelper urlHelper = new UrlHelper();
-    private ServiceInfo serviceInfo;
+    private ServiceEntity serviceEntity;
     private String sridAuthorityCode = "EPSG:4326"; // default
 
-    public AbstractOuputAdapter(ServiceInfo serviceInfo) {
-        this.serviceInfo = serviceInfo;
+    public AbstractOuputAdapter(ServiceEntity serviceEntity) {
+        this.serviceEntity = serviceEntity;
     }
 
     public void setDatabaseAuthorityCode(String code) {
@@ -83,8 +83,8 @@ public abstract class AbstractOuputAdapter<T extends ParameterOutput> extends Pa
 
     protected ServiceOutput getServiceOutput() {
         ServiceOutput result = new ServiceOutput();
-        result.setLabel(serviceInfo.getServiceDescription());
-        result.setId(serviceInfo.getServiceId());
+        result.setLabel(serviceEntity.getServiceDescription());
+        result.setId(serviceEntity.getServiceId());
         return result;
     }
 

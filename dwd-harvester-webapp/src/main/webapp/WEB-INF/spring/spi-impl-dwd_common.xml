@@ -18,6 +18,10 @@
         <property name="serviceDescription" value="DWD Warnings Series Service." />
         <property name="noDataValues" value="-9999.0,99999" />
     </bean>
+    
+    <bean id="serviceParameterService" class="org.n52.series.srv.AccessService">
+        <constructor-arg index="0" ref="serviceRepository" />
+    </bean>
 
 	<bean id="alertStore" class="org.n52.series.dwd.store.InMemoryAlertStore" />
 

@@ -34,7 +34,7 @@ import org.n52.io.request.RequestSimpleParameterSet;
 import org.n52.io.response.OutputCollection;
 import org.n52.io.response.PlatformOutput;
 import org.n52.io.response.PlatformType;
-import org.n52.series.dwd.beans.ServiceInfo;
+import org.n52.series.dwd.beans.ServiceEntity;
 import org.n52.series.dwd.beans.WarnCell;
 import org.n52.series.dwd.rest.AlertCollection;
 import org.n52.series.dwd.store.AlertStore;
@@ -47,7 +47,7 @@ public class PlatformOutputAdapter extends AbstractOuputAdapter<PlatformOutput> 
     @Autowired
     private DatasetOutputAdapter seriesOutputAdapter;
 
-    public PlatformOutputAdapter(AlertStore store, ServiceInfo serviceInfo) {
+    public PlatformOutputAdapter(AlertStore store, ServiceEntity serviceInfo) {
         super(serviceInfo);
         this.store = store;
     }
