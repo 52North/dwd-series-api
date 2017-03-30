@@ -67,6 +67,7 @@ This project includes:
   Series REST API - IO module under GNU General Public License, Version 2.0
   Series REST API - REST module under GNU General Public License, Version 2.0
   Series REST API - SPI DWD Impl under GNU General Public License, Version 2.0
+  Series REST API - SPI module under GNU General Public License, Version 2.0
   Shapefile module under Lesser General Public License (LGPL)
   SLF4J API Module under MIT License
   Spring AOP under The Apache Software License, Version 2.0

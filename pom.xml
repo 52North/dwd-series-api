@@ -76,6 +76,11 @@
             </dependency>
             <dependency>
                 <groupId>org.n52.series-api</groupId>
+                <artifactId>spi</artifactId>
+                <version>${series.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.n52.series-api</groupId>
                 <artifactId>rest</artifactId>
                 <version>${series.api.version}</version>
             </dependency>
@@ -454,7 +459,7 @@
                         <id>check-license</id>
                         <phase>initialize</phase>
                         <goals>
-                            <goal>check</goal>
+                            <goal>generate</goal>
                         </goals>
                     </execution>
                 </executions>
